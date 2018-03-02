@@ -1,28 +1,20 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿/* MusicPlayer makes sure that only on music player is 
+ * instantiated across levels .
+ */
+
+using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
 
 	static MusicPlayer instance = null;
 	
 	void Awake () {
-		//Debug.Log ("Music player Awake " + GetInstanceID());
 		if (instance != null) { 
 			Destroy (gameObject);
-			Debug.Log("Duplicate music player self-destructing!");
+			// Debug.Log("Duplicate music player self-destructing!");
 		} else {
 			instance = this;
 			GameObject.DontDestroyOnLoad(gameObject);
 		}
-	}
-	
-	// Use this for initialization
-	void Start () {
-		//Debug.Log ("Music player Start " + GetInstanceID());
-	}
-		
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }
